@@ -1,3 +1,4 @@
 coldfront
 djangorestframework
 mozilla-django-oidc
+django-scim2
