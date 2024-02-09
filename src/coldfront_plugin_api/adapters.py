@@ -28,7 +28,7 @@ class SCIMColdfrontUser(SCIMUser):
             ],
             "meta": {
                 "resourceType": "User",
-                "created": self.obj.date_joined,
+                "created": self.obj.date_joined.isoformat(),
             },
         }
 
