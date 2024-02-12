@@ -48,3 +48,6 @@ def get_or_fetch_user(username):
         user = create_user(**found)
 
     return user
+
+def SCIM_is_authenticated_predicate(user: User):
+    return user.is_superuser
