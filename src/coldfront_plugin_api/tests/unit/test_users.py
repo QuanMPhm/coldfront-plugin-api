@@ -58,7 +58,7 @@ class TestUsers(base.TestBase):
         self.assertEqual(user_dict["name"]["familyName"], last_name)
         self.assertEqual(user_dict["emails"][0]["value"], email)
 
-        r = self.admin_client.get("/api/scim/v2/Users")
+        r = self.admin_client.get("/api/scim/v2/Users?count=100")
         self.assertIn(user_dict, r.json()['Resources'])
 
         r = self.admin_client.get(f"/api/scim/v2/Users/{username}")
