@@ -30,5 +30,6 @@ if os.getenv('PLUGIN_AUTH_OIDC') == 'True':
 # Settings for django_scim module
 SCIM_SERVICE_PROVIDER = {
     'NETLOC': 'localhost',
-    'USER_ADAPTER' : 'coldfront_plugin_api.adapters.SCIMColdfrontUser'
+    'USER_ADAPTER' : 'coldfront_plugin_api.scim_v2.adapters.SCIMColdfrontUser',
+    'USER_FILTER_PARSER' : 'coldfront_plugin_api.scim_v2.filters.ColdfrontUserFilterQuery',
 }
