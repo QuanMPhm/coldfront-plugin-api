@@ -8,7 +8,7 @@ from django_scim import constants
 from coldfront_plugin_api import auth, utils
 
 class SCIMColdfrontUser(SCIMUser):
-    id_field = "id"
+    id_field = "username"
 
     def to_dict(self):
 
