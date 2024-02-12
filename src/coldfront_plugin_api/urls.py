@@ -23,6 +23,7 @@ class AllocationViewSet(viewsets.ReadOnlyModelViewSet):
 
         return queryset
 
+app_name = 'scim'
 
 router = routers.SimpleRouter(trailing_slash=False)
 router.register(r'allocations', AllocationViewSet, basename='api-allocation')
@@ -30,6 +31,14 @@ router.register(r'allocations', AllocationViewSet, basename='api-allocation')
 urlpatterns = router.urls
 
 urlpatterns += [
-    path('scim/v2/', include('django_scim.urls'))
+    path('scim/v2/Groups', groups.ListGroups.as_view()),
+    path('scim/v2/Groups/<int:pk>', groups.GroupDetail.as_view()),
+    re_path(r'^scim/v2$',
+            scim_views.SCIMView.as_view(implemented=False),
+            name='root'),
+    re_path(r'^scim/v2/Users(?:/(?P<uuid>[^/]+))?$',
+            scim_views.UsersView.as_view(),
+            name='users'),
+    
 ]
 urlpatterns = format_suffix_patterns(urlpatterns)
