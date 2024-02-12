@@ -2,6 +2,7 @@ from django_scim.filters import UserFilterQuery, GroupFilterQuery
 from django_scim import constants
 from django_scim.utils import get_user_model
 
+
 class ColdfrontUserFilterQuery(UserFilterQuery):
     """
     Defines the SCIM filters for Coldfront users
